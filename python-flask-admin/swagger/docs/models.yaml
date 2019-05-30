@@ -1,0 +1,136 @@
+OrganizationDetailed:
+  type: object
+  properties:
+    _id:
+      description: Organization ID.
+      type: string
+    activation_status:
+      description: Organization activation status.
+      enum:
+        - ACTIVE
+        - INACTIVE
+        - NOT_REGISTERED
+      type: string
+    candidates_count:
+      description: Number of candidates.
+      type: integer
+    created_at:
+      description: Organization creation date.
+      type: string
+    email:
+      description: Organization administrator email.
+      type: string
+    employees_count:
+      description: Number of employees.
+      type: integer
+    inactive_vacancies_count:
+      description: Number of inactive vacancies.
+      type: integer
+    name:
+      description: Organization name.
+      type: string
+    open_vacancies_count:
+      description: Number of opened vacancies.
+      type: integer
+Unauthorized:
+  type: object
+  properties:
+    status:
+      description: Error.
+      type: string
+      example: error
+Success:
+  properties:
+    status:
+      type: string
+      example: success
+WrongCreds:
+  properties:
+    error:
+      type: string
+      example: Wrong email and/or password
+NotFound:
+  type: object
+  properties:
+    error:
+      description: Error.
+      type: string
+      example: Not found
+    help_message:
+      description: Error.
+      type: string
+      example: No organization with provided I
+RegistrationFilter:
+  type: object
+  properties:
+    filter_type:
+      type: string
+      example: registration_filter
+    registered:
+      type: boolea
+NameFilter:
+  type: object
+  properties:
+    filter_type:
+      type: string
+      example: name_filter
+    name:
+      type: string
+      example: Dmitry
+Filters:
+  type: array
+  items:
+    anyOf:
+      - $ref: '#/RegistrationFilter'
+      - $ref: '#/NameFilter'
+Organization:
+  type: object
+  properties:
+    _id:
+      description: Organization ID.
+      type: string
+    activation_status:
+      description: Organization activation status.
+      enum:
+        - ACTIVE
+        - INACTIVE
+        - NOT_REGISTERED
+      type: string
+    candidates_count:
+      description: Number of candidates.
+      type: integer
+    created_at:
+      description: Organization creation date.
+      type: string
+    email:
+      description: Organization administrator email.
+      type: string
+    employees_count:
+      description: Number of employees.
+      type: integer
+    inactive_vacancies_count:
+      description: Number of inactive vacancies.
+      type: integer
+    name:
+      description: Organization name.
+      type: string
+    open_vacancies_count:
+      description: Number of opened vacancies.
+      type: integer
+Statistic:
+  type: object
+  properties:
+    active_organizations_count:
+      type: integer
+    inactive_organizations_count:
+      type: integer
+    not_registered_organizations_count:
+      type: integer
+    active_users_count:
+      type: integer
+    vacancies_count:
+      type: integer
+    candidates_count:
+      type: integer
+    hired_candidates_count:
+      type: integer

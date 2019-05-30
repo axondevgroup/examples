@@ -1,0 +1,39 @@
+[
+  {
+    "organization_id": "57c6e9fcc9e77c0012894079",
+    "first_name": "Dmitry",
+    "last_name": "Yakimenko",
+    "contact_info": { "phone": "+380111111111", "phone_second": null },
+    "updated_at": "2016-08-23T16:14:31.978Z",
+    "created_at": "2016-08-23T16:14:31.978Z",
+    "qualification_level_code": "MID",
+    "status_code": "CAN",
+    "position_id": "59e711b81a657517796fffd5",
+    "languages": []
+  },
+  {
+    "organization_id": "57c6e9fcc9e77c0012894079",
+    "first_name": "Andrii",
+    "last_name": "Grytsyuk",
+    "contact_info": { "phone": "+380952509595", "phone_second": null },
+    "documents": ["57bff7b1c9e77c0014cf9870"],
+    "updated_at": "2016-08-26T08:02:58.341Z",
+    "created_at": "2016-08-26T08:02:58.341Z",
+    "links": [],
+    "qualification_level_code": "SEN",
+    "status_code": "CAN",
+    "position_id": "59e711b81a65751779700007",
+    "languages": []
+  },
+  {
+    "organization_id": "57c6e9fcc9e77c0012894079",
+    "first_name": "vasya",
+    "last_name": "petrov",
+    "contact_info": { "phone": "+380111111111", "phone_second": null },
+    "updated_at": "2018-02-06T14:37:30.863Z",
+    "created_at": "2016-08-31T14:34:03.572Z",
+    "qualification_level_code": "MID",
+    "status_code": "EMP",
+    "position_id": "59e711b81a6575177970007f"
+  }
+]

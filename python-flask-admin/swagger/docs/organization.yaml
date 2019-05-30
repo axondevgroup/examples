@@ -1,0 +1,33 @@
+tags:
+  - Organizations
+
+parameters:
+  - in: path
+    name: org_id
+    description: organizaton ID
+    required: true
+    schema:
+      type: string
+            
+responses:
+  '200':
+    description: Retuns orgnization.
+    content:
+      application/json:
+        schema:
+          $ref: './swagger/models.yaml#/Organization'
+  '401':
+    description: Authorization information is missing or invalid.
+    content:
+      application/json:
+        schema:
+          $ref: './swagger/models.yaml#/Unauthorized'
+    
+  '404':
+    description: Organizations with specified ID not found.
+    content:
+      application/json:
+        schema:
+          $ref: './swagger/models.yaml#/NotFound'
+      tags:
+        - Organizations

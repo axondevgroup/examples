@@ -1,0 +1,10 @@
+tags:
+  - Auth
+description: Logout endpoint 
+responses:
+  '200':
+    description: Success.
+    content:
+      application/json:
+        schema:
+          $ref: './swagger/models.yaml#/Success'

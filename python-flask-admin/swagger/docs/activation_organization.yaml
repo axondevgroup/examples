@@ -1,0 +1,40 @@
+tags:
+  - Organizations
+parameters:
+  - in: path
+    name: org_id
+    description: organizaton ID
+    required: true
+    schema:
+      type: string
+
+  - in: path
+    name: action
+    description: action to perform
+    required: true
+    schema:
+      type: string
+      enum: [activate, inactivate]
+
+responses:
+  "200":
+    description: Status 200
+    content:
+      application/json:
+        schema:
+          type: object
+  "401":
+    description: Authorization information is missing or invalid.
+    content:
+      application/json:
+        schema:
+          $ref: "./swagger/models.yaml#/Unauthorized"
+
+  "404":
+    description: Organizations with specified ID not found.
+    content:
+      application/json:
+        schema:
+          $ref: "./swagger/models.yaml#/NotFound"
+      tags:
+        - Organization
