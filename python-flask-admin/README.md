@@ -17,18 +17,6 @@ pip install -r requirements.txt
 python run.py
 
 ```
-#### Run client  
-```bash
-# Go to client folder
-cd client
-
-# Install node modules
-npm install
-
-# Run client
-npm start
-
-```
 
 ### Production
 ##### Set FLASK_ENV=production in run-daemon.sh to tell flask run in production mode. 
