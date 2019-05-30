@@ -1,0 +1,63 @@
+<h2>Config. Settings</h2>
+
+<div class="item">
+  <p>
+    {{companySettings.name}}
+    <span>Company name</span>
+  </p>
+</div>
+
+<div class="item">
+  <div class="flex">
+    <div class="webhook-url pointer">
+      <div class="pointer">
+        <form (click)="changeUrl()">
+          <mat-form-field id="{{editWebHookUrl && 'disable'}}">
+            <div class="flex">
+              <input
+                  matInput
+                  placeholder="http(s)://link-to-your-web-hook.com"
+                  [formControl]="webHookFormControl"
+                  value="{{companySettings.webhook_url}}"
+                  (blur)="handleBlur()"
+                  (focus)="handleFocus()"
+                  #webHookUrl
+                  [errorStateMatcher]="matcher">
+              <div>
+                <mat-icon>create</mat-icon>
+              </div>
+            </div>
+            <mat-hint class="web-hook-url">WebHook Url</mat-hint>
+            <mat-error *ngIf="!webHookFormControl.hasError('required')">
+              Please enter a valid webhook link
+            </mat-error>
+            <mat-error *ngIf="webHookFormControl.hasError('required')">
+              <div>Webhook link is required</div>
+            </mat-error>
+          </mat-form-field>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="flex">
+  <div class="item">
+    <p>
+      {{companySettings.due_date}}
+      <span>Due Date</span>
+    </p>
+  </div>
+  <div class="item">
+    <p>
+      {{companySettings.due_date_type === 'DAYS' && 'Days'}}
+      <span>Due Date Type</span>
+    </p>
+  </div>
+  <div class="item">
+    <p>
+      {{companySettings.over_due}}
+      <span>Over Due</span>
+    </p>
+  </div>
+</div>

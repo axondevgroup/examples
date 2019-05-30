@@ -1,0 +1,40 @@
+.flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.item {
+  p {
+    margin-top: 0;
+    margin-right: 2rem;
+    margin-bottom: 0;
+    font-size: 1.2rem;
+  }
+
+  span {
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    color: #c1c1c1;
+    display: block;
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.webhook-url {
+  width: 30%;
+  margin-top: 0;
+  margin-right: 2rem;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+input {
+  width: 100%;
+  border: 0;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  font-size: 1.2rem;
+}

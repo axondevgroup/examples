@@ -1,0 +1,80 @@
+<h1>Catalog. Package "{{packageDetails.name}}"</h1>
+
+<div class="package-container">
+  <div class="package-list">
+    <div class="package-list-item">
+      {{packageDetails.package_code}}
+      <span class="package-list-description">Package Code</span>
+    </div>
+    <div class="package-list-item" *ngIf="!!packageDetails">
+      {{packageDetails.rate.amount}} / {{packageDetails.rate.type === 'MONTHLY' ? 'month' : ''}}
+      <span class="package-list-description">Rate</span>
+    </div>
+    <div class="package-list-item">
+      {{packageDetails.package_id}}
+      <span class="package-list-description">Package Id</span>
+    </div>
+  </div>
+  <button mat-flat-button color="warn" (click)="removePackage(packageDetails.package_code, packageDetails.name)">Delete Package</button>
+</div>
+
+<h2>Services</h2>
+
+<table mat-table [dataSource]="serviceTable" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="serviceCodeColumn">
+    <th mat-header-cell *matHeaderCellDef>Service Code</th>
+    <td mat-cell *matCellDef="let element"> {{element.service_code}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="serviceNameColumn">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="serviceRateColumn">
+    <th mat-header-cell *matHeaderCellDef>Rate</th>
+    <td mat-cell *matCellDef="let element"> {{element.rate.amount}}
+      / {{!!packageDetails.rate && packageDetails.rate.type === 'MONTHLY' ? 'month' : ''}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedServicesColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedServicesColumns;"></tr>
+</table>
+
+<app-pagination
+    [length]="serviceLength"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    (notify)="onNotify($event, 'services')"
+></app-pagination>
+
+<h2>Components</h2>
+
+<table mat-table [dataSource]="componentsTable" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="componentCodeColumn">
+    <th mat-header-cell *matHeaderCellDef>Component Code</th>
+    <td mat-cell *matCellDef="let element"> {{element.component_code}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="componentNameColumn">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="componentRateColumn">
+    <th mat-header-cell *matHeaderCellDef>Rate</th>
+    <td mat-cell *matCellDef="let element"> {{element.rate.amount}} {{element.rate.type.toLowerCase() === 'per_unit' ? '/ unit' : '%'}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedComponentsColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedComponentsColumns;"></tr>
+</table>
+
+<app-pagination
+    [length]="componentLength"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    (notify)="onNotify($event, 'components')"
+></app-pagination>

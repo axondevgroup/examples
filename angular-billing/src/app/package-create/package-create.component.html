@@ -1,0 +1,118 @@
+<h1>New Package</h1>
+
+<div class="inputs-container">
+  <mat-form-field class="form-field">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Package Name" [formControl]="name" required>
+    <mat-error *ngIf="name.invalid">Wrong name!</mat-error>
+  </mat-form-field>
+  <mat-form-field class="form-field">
+    <mat-label>Code</mat-label>
+    <input matInput placeholder="Code" [formControl]="code" required>
+    <mat-error *ngIf="code.invalid">Wrong code!</mat-error>
+  </mat-form-field>
+  <mat-form-field class="form-field">
+    <mat-label>Monthly Rate</mat-label>
+    <input matInput placeholder="Rate" [formControl]="rate" required>
+    <mat-error *ngIf="rate.invalid">Wrong rate value</mat-error>
+  </mat-form-field>
+</div>
+
+
+<section class="included-container">
+  <header class="included-header">
+    <h2>Services Included</h2>
+    <button
+        mat-icon-button
+        [disabled]="name.invalid || code.invalid"
+        (click)="attachTo('services')"
+    >
+      <mat-icon class="add-icon">add</mat-icon>
+    </button>
+  </header>
+  <section class="included-body">
+    <table mat-table [dataSource]="attachedServiceTable" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="serviceCode">
+        <th mat-header-cell *matHeaderCellDef>Service Code</th>
+        <td mat-cell *matCellDef="let element"> {{element.service_code}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element">
+          <div class="rate-cell-container">
+            <span class="rate-data">{{element.name}}</span>
+            <div class="remove-table-row" (click)="deleteIncludedItem(element, 'components')">
+              <mat-icon>delete_forever</mat-icon>
+            </div>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedServicesColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedServicesColumns;"></tr>
+    </table>
+
+    <app-pagination
+        [length]="serviceLength"
+        [pageSize]="pageSize"
+        [pageSizeOptions]="pageSizeOptions"
+        (notify)="onNotify($event, 'services')"
+    ></app-pagination>
+  </section>
+</section>
+
+<section class="included-container">
+  <header class="included-header">
+    <h2>Components Included</h2>
+    <button
+        mat-icon-button
+        [disabled]="name.invalid || code.invalid || rate.invalid"
+        (click)="attachTo('components')"
+    >
+      <mat-icon class="add-icon">add</mat-icon>
+    </button>
+  </header>
+  <section class="included-body">
+    <table mat-table [dataSource]="attachedComponentTable" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="componentsCode">
+        <th mat-header-cell *matHeaderCellDef>Component Code</th>
+        <td mat-cell *matCellDef="let element"> {{element.components[0].component_code}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element"> {{element.components[0].name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="rate">
+        <th mat-header-cell *matHeaderCellDef>Rate</th>
+        <td mat-cell *matCellDef="let element">
+          <div class="rate-cell-container">
+            <span class="rate-data">{{element.rate.amount}} / {{element.rate.type == 'MONTHLY' ? 'month' : ''}}</span>
+            <div class="remove-table-row" (click)="deleteIncludedItem(element, 'components')">
+              <mat-icon>delete_forever</mat-icon>
+            </div>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedComponentsColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedComponentsColumns;"></tr>
+    </table>
+
+    <app-pagination
+        [length]="componentsLength"
+        [pageSize]="pageSize"
+        [pageSizeOptions]="pageSizeOptions"
+        (notify)="onNotify($event, 'components')"
+    ></app-pagination>
+  </section>
+</section>
+
+<div class="conformation-container">
+  <button mat-flat-button color="warn" (click)="doneCratePackage()">Cancel</button>
+  <button  mat-raised-button color="primary" (click)="doneCratePackage()">Done</button>
+</div>

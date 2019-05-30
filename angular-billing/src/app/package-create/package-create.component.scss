@@ -1,0 +1,45 @@
+.inputs-container {
+  .form-field {
+    margin-right: 2rem;
+  }
+}
+
+.included-container {
+  .included-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .add-icon {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .included-body {}
+}
+
+.conformation-container {
+  margin-top: 3rem;
+  display: flex;
+  align-content: center;
+  justify-content: flex-end;
+
+  button {
+    margin-left: 2rem;
+  }
+}
+
+.rate-cell-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  .rate-data {
+    margin-right: 1rem;
+  }
+}
+
+.remove-table-row {
+  cursor: pointer;
+}

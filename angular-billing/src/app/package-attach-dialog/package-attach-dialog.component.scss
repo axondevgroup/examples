@@ -1,0 +1,8 @@
+.conformation-container {
+  display: flex;
+  justify-content: flex-end;
+
+  button:not(:nth-last-of-type(1)) {
+    margin-right: 3rem;
+  }
+}

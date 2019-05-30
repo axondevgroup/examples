@@ -1,0 +1,68 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.content-container {
+  padding: 0 1rem 0 16rem;
+}
+
+.error-message {
+  color: #ffffff;
+}
+
+.webhook-url {
+  form {
+    margin-bottom: 2rem;
+  }
+
+  & {
+    .mat-form-field {
+      width: 100%;
+    }
+  }
+
+  #disable {
+    border: 0;
+    background: transparent;
+    pointer-events: none;
+  }
+
+  input {
+    &:focus, &:active {
+      outline: none;
+    }
+  }
+
+  .web-hook-url {
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    color: #c1c1c1;
+    display: block;
+  }
+}
+
+.delete-package-dialog {
+  width: 30%;
+}
+
+.package-attachment-dialog-container {
+  .mat-form-field-infix {
+    width: 32rem;
+  }
+}
+
+table {
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+.mat-paginator {
+  background: transparent;
+}
+
+div.ng-star-inserted {
+  height: 100%;
+}
+
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");

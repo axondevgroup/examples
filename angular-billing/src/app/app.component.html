@@ -1,0 +1,7 @@
+<div *ngIf="!!isAuth; else loginForm">
+  <app-navigation></app-navigation>
+</div>
+
+<ng-template #loginForm>
+  <app-login></app-login>
+</ng-template>
