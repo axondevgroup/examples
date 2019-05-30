@@ -1,0 +1,32 @@
+<form (submit)="handleSubmit($event)" class="login-form-container">
+  <div class="auth-form-item">
+    <mat-form-field>
+      <input
+          type="email"
+          placeholder="email"
+          matInput
+          [formControl]="email"
+          [errorStateMatcher]="matcher">
+      <mat-error *ngIf="!email.hasError('required')">
+        Invalid email.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+          type="password"
+          placeholder="password"
+          matInput
+          [formControl]="password"
+          [errorStateMatcher]="matcher">
+      <mat-error *ngIf="!email.hasError('required')">
+        Invalid password.
+      </mat-error>
+    </mat-form-field>
+    <button
+        mat-flat-button
+        color="primary"
+        [disabled]="email.hasError('required') || password.hasError('required')">
+      login
+    </button>
+  </div>
+</form>

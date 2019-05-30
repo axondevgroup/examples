@@ -1,0 +1,90 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav class="sidenav" fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/app/dashboard" routerLinkActive="active" class="disable-navigation">
+        <mat-icon>credit_card</mat-icon>
+        Dashboard
+      </a>
+      <div (click)="isBillingOpen = !isBillingOpen" class="toggle-list-item">
+          <mat-icon>credit_card</mat-icon>
+          Billing
+      </div>
+      <div *ngIf="isBillingOpen" class="sub-menu">
+          <a mat-list-item routerLink="/app/subscriptions" routerLinkActive="active">
+            <span>
+              <mat-icon>inbox</mat-icon>
+              Subscriptions
+            </span>
+          </a>
+          <a mat-list-item routerLink="/app/payments" routerLinkActive="active">
+            <span>
+              <mat-icon>credit_card</mat-icon>
+              Payments
+            </span>
+          </a>
+          <a mat-list-item routerLink="/app/invoices" routerLinkActive="active">
+              <span>
+                <span class="usd-icon-element">$</span>
+                Invoices
+              </span>
+          </a>
+        </div>
+      <div (click)="isCatalogOpen = !isCatalogOpen" class="toggle-list-item">
+        <mat-icon>card_travel</mat-icon>
+        Catalog
+      </div>
+      <div *ngIf="isCatalogOpen" class="sub-menu">
+        <a mat-list-item routerLink="/app/packages" routerLinkActive="active">
+          <span>
+            <mat-icon>inbox</mat-icon>
+            Packages
+          </span>
+        </a>
+        <a mat-list-item routerLink="/app/components" routerLinkActive="active">
+          <span>
+            <mat-icon>local_shipping</mat-icon>
+            Components
+          </span>
+        </a>
+      </div>
+      <div (click)="isConfigOpen = !isConfigOpen" class="toggle-list-item">
+        <mat-icon>settings</mat-icon>
+        Configuration
+      </div>
+      <div *ngIf="isConfigOpen" class="sub-menu">
+        <span>
+          <a mat-list-item routerLink="/app/settings" routerLinkActive="active">
+            <mat-icon>settings</mat-icon>
+            Settings
+          </a>
+        </span>
+        <span>
+          <a mat-list-item routerLink="/app/config" routerLinkActive="active">
+            <mat-icon>settings</mat-icon>
+            Config
+          </a>
+        </span>
+      </div>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <div class="billing-header-container">
+        <span>Billing Portal</span>
+      </div>
+    </mat-toolbar>
+    <div class="content-container">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

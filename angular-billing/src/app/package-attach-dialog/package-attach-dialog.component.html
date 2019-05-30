@@ -1,0 +1,93 @@
+<div>
+  <h2>{{data.title}}</h2>
+
+  <div class="package-attachment-dialog-container">
+    <mat-form-field>
+      <mat-select
+          [placeholder]="data.type"
+          class="package-attach-select"
+          name="packageType"
+          [(ngModel)]="data.formValues.selectedName"
+          [formControl]="packageType"
+          required
+      >
+        <mat-option
+            *ngFor="let data of data.selectList"
+            [value]="data.component_id"
+            class="package-attach-option"
+        >
+          {{data.name}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="type.invalid">Not be empty!</mat-error>
+    </mat-form-field>
+
+    <div *ngIf="data.type.toLowerCase() === 'component'">
+      <mat-form-field>
+        <input
+            matInput
+            type="text"
+            name="rate"
+            placeholder="Rate"
+            [(ngModel)]="data.formValues.rate"
+            [formControl]="rate"
+            required
+        >
+        <mat-error *ngIf="rate.invalid">Must be a number!</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select
+            placeholder="Type"
+            class="package-attach-select"
+            name="type"
+            [(ngModel)]="data.formValues.type"
+            [formControl]="type"
+            required
+        >
+          <mat-option value="PER_UNIT">
+            Per Unit
+          </mat-option>
+          <mat-option value="PERCENT">
+            %
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="type.invalid">Not be empty!</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+            matInput
+            type="text"
+            name="quota"
+            placeholder="Quota"
+            [(ngModel)]="data.formValues.quota"
+            [formControl]="quota"
+            required
+        >
+        <mat-error *ngIf="quota.invalid">Must be a number!</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="conformation-container">
+    <button mat-flat-button (click)="cancel()" color="warn">Cancel</button>
+
+    <button
+        mat-flat-button
+        [mat-dialog-close]="data.formValues"
+        [disabled]="packageType.invalid || rate.invalid || type.invalid || quota.invalid"
+        *ngIf="data.type.toLowerCase() === 'component'; else service"
+        color="primary"
+    >Done</button>
+
+    <ng-template #service>
+      <button
+          mat-flat-button
+          [mat-dialog-close]="data.formValues"
+          [disabled]="packageType.invalid"
+          color="primary"
+      >Done</button>
+    </ng-template>
+  </div>
+</div>

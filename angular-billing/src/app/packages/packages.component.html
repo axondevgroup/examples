@@ -1,0 +1,42 @@
+<div class="packages-header-container">
+  <h1>Packages</h1>
+  <a mat-raised-button color="primary" routerLink="create">New Package</a>
+</div>
+<div>
+  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="codeColumn">
+    <th mat-header-cell *matHeaderCellDef> Package Code </th>
+    <td mat-cell *matCellDef="let element">{{element.package_code}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="nameColumn">
+    <th mat-header-cell *matHeaderCellDef> Package Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="idColumn">
+    <th mat-header-cell *matHeaderCellDef> Package Id </th>
+    <td mat-cell *matCellDef="let element"> {{element.package_id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="rateColumn">
+    <th mat-header-cell *matHeaderCellDef> Rate </th>
+    <td mat-cell *matCellDef="let element">
+      {{element.rate.amount}} / {{element.rate.type == 'MONTHLY' ? 'month' : ''}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="linksColumn">
+    <th mat-header-cell *matHeaderCellDef> Links </th>
+    <td mat-cell *matCellDef="let element">
+      <a routerLink="{{element.package_code}}">More...</a>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getSpecificPackage(row)"></tr>
+</table>
