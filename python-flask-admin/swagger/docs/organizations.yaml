@@ -1,0 +1,70 @@
+tags:
+  - Organizations
+description: Organizations list get endpoint.
+parameters:
+  - in: query
+    name: limit
+    description: number of documents to  limit
+    required: false
+    schema:
+      type: integer
+      default: 10
+
+  - in: query
+    name: skip
+    description: number of documents to skip
+    required: false
+    schema:
+      default: 0
+      type: integer
+
+  - in: query
+    name: sort
+    description: sort field name
+    required: false
+    schema:
+      default: created_at
+      type: string
+
+  - in: query
+    name: sort_order
+    description: sort order
+    required: false
+    schema:
+      default: desc
+      enum:
+        - asc
+        - desc
+      type: string
+
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          filters:
+            $ref: "./swagger/models.yaml#/Filters"
+
+responses:
+  "200":
+    description: Retuns list of orgnizations.
+    headers:
+      X-Total-Count:
+        description: Total count of organizations.
+        schema:
+          type: integer
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: "./swagger/models.yaml#/Organization"
+
+  "401":
+    description: Authorization information is missing or invalid.
+    content:
+      application/json:
+        schema:
+          $ref: "./swagger/models.yaml#/Unauthorized"

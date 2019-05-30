@@ -1,0 +1,166 @@
+[
+  {
+    "name": "Industry Inc",
+    "country": { "_id": "UA", "name": "Ukraine" },
+    "created_at": "2016-08-23T15:44:12.585Z",
+    "industry_code": "STARTUP",
+    "team_members_code": "LARGE",
+    "reject_reasons": [
+      {
+        "_id": "59954ca906d710d29b3b86d7",
+        "name": "Did not contact",
+        "created_at": "2017-08-03T14:10:00.000Z"
+      }
+    ],
+    "skill_categories": [
+      {
+        "_id": "59a6c0881a6575177947cdb7",
+        "name": "MAIN",
+        "skills": [
+          { "_id": "59a6c0881a6575177947cd6a", "name": "android" },
+          { "_id": "59a6c0881a6575177947cd6b", "name": "java" }
+        ],
+        "created_at": "2017-08-16T00:00:00.000Z"
+      }
+    ],
+    "positions": [
+      {
+        "_id": "59e711b81a657517796fffd5",
+        "name": "Business Analyst",
+        "created_at": "2017-10-18T08:32:56.193Z"
+      }
+    ],
+    "languages": [
+      {
+        "_id": "5a2e9c12d19c5624002d49fc",
+        "name": "English",
+        "created_at": "2017-12-11T14:54:10.946Z"
+      }
+    ]
+  },
+  {
+    "name": "Organization",
+    "country": { "_id": "UA", "name": "Ukraine" },
+    "created_at": "2016-08-26T08:00:37.394Z",
+    "industry_code": "STARTUP",
+    "team_members_code": "LARGE",
+    "reject_reasons": [
+      {
+        "_id": "59954ca906d710d29b3b86dd",
+        "name": "Did not contact",
+        "created_at": "2017-08-03T14:10:00.000Z"
+      }
+    ],
+    "skill_categories": [
+      {
+        "_id": "59a6c0881a6575177947ce07",
+        "name": "MAIN",
+        "skills": [
+          { "_id": "59a6c0881a6575177947cdba", "name": "android" },
+          { "_id": "59a6c0881a6575177947cdbb", "name": "java" }
+        ],
+        "created_at": "2017-08-16T00:00:00.000Z"
+      }
+    ],
+    "positions": [
+      {
+        "_id": "59e711b81a65751779700007",
+        "name": "Java Developer",
+        "created_at": "2017-10-18T08:32:56.228Z"
+      }
+    ],
+    "job_types": [
+      "Full time",
+      "Part time",
+      "Temporary",
+      "Freelance",
+      "Contractor"
+    ],
+    "work_experience_types": [
+      "0-1 years",
+      "1-2 years",
+      "2-3 years",
+      "3-5 years",
+      "5+ years"
+    ],
+    "languages": [
+      {
+        "_id": "5a2e9c12d19c5624002d4a06",
+        "name": "Spanish",
+        "created_at": "2017-12-11T14:54:10.952Z"
+      }
+    ]
+  },
+  {
+    "name": "Some Company",
+    "country": { "_id": "UA", "name": "Ukraine" },
+    "created_at": "2016-08-30T09:35:54.391Z",
+    "inactivated_at": "2016-09-30T09:35:54.391Z",
+    "industry_code": "STARTUP",
+    "team_members_code": "LARGE",
+    "reject_reasons": [
+      {
+        "_id": "59954ca906d710d29b3b86e7",
+        "name": "Accepted offer from another company",
+        "created_at": "2017-08-03T14:06:00.000Z"
+      }
+    ],
+    "skill_categories": [
+      {
+        "_id": "59a6c0881a6575177947ce57",
+        "name": "MAIN",
+        "skills": [
+          { "_id": "59a6c0881a6575177947ce40", "name": "sales" },
+          { "_id": "59a6c0881a6575177947ce41", "name": "manager" },
+          { "_id": "59a6c0881a6575177947ce42", "name": "hr" },
+          { "_id": "59a6c0881a6575177947ce43", "name": "researcher" },
+          { "_id": "59a6c0881a6575177947ce44", "name": "office" },
+          { "_id": "59a6c0881a6575177947ce45", "name": "pm" },
+          { "_id": "59a6c0881a6575177947ce46", "name": "recruiter" }
+        ],
+        "created_at": "2017-08-16T00:00:00.000Z"
+      }
+    ],
+    "job_types": [
+      "Full time",
+      "Part time",
+      "Temporary",
+      "Freelance",
+      "Contractor"
+    ],
+    "work_experience_types": [
+      "0-1 years",
+      "1-2 years",
+      "2-3 years",
+      "3-5 years",
+      "5+ years"
+    ],
+    "languages": [
+      {
+        "_id": "5a2e9c12d19c5624002d4a0f",
+        "name": "German",
+        "created_at": "2017-12-11T14:54:10.954Z"
+      }
+    ]
+  },
+  {
+    "name": "Another",
+    "country": { "_id": "UA", "name": "Ukraine" },
+    "industry_code": "STARTUP",
+    "team_members_code": "LARGE",
+    "positions": [
+      {
+        "_id": "59e711b81a657517796fffd5",
+        "name": "Business Analyst",
+        "created_at": "2017-10-18T08:32:56.193Z"
+      }
+    ],
+    "languages": [
+      {
+        "_id": "5a2e9c12d19c5624002d49fc",
+        "name": "English",
+        "created_at": "2017-12-11T14:54:10.946Z"
+      }
+    ]
+  }
+]

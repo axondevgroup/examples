@@ -1,0 +1,29 @@
+tags:
+  - Auth
+description: Login endpoint
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          username:       
+            type: string
+          password:
+            type: string
+            format: password
+responses:
+  '200':
+    description: Retuns only status code.
+    content:
+      application/json:
+        schema:
+          $ref: './swagger/models.yaml#/Success'
+  '400':
+    description: Bad request.
+    content:
+      application/json:
+        schema:
+          $ref: './swagger/models.yaml#/WrongCreds'
+

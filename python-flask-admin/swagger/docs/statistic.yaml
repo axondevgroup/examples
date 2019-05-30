@@ -1,0 +1,18 @@
+tags:
+  - Organizations
+description: Admin portal statistic get endpoint.
+responses:
+  "200":
+    description: Retuns Admin portal statistic.
+    content:
+      application/json:
+        schema:
+          $ref: "./swagger/models.yaml#/Statistic"
+
+
+  "401":
+    description: Authorization information is missing or invalid.
+    content:
+      application/json:
+        schema:
+          $ref: "./swagger/models.yaml#/Unauthorized"
